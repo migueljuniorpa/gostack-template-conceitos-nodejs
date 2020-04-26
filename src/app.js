@@ -83,15 +83,15 @@ app.post("/repositories/:id/like", validateProjectId, (request, response) => {
 
   const repositoryIndex = repositories.findIndex(repository => repository.id === id);
 
-  const { title, url, techs, likes } = repositories[repositoryIndex];
+  const repository = {...repositories[repositoryIndex], likes: repositories[repositoryIndex].likes + 1 };
 
-  const repository = {
-    id,
-    title,
-    url,
-    techs,
-    likes: likes + 1
-  }
+  // const repository = {
+  //   id,
+  //   title,
+  //   url,
+  //   techs,
+  //   likes: likes + 1
+  // }
 
   repositories[repositoryIndex] = repository;
 
